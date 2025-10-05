@@ -1,81 +1,192 @@
- @import url("https://fonts.googleapis.com/css2?family=family=Mooli&display=swap");
- :root {
- --primary-color: #52489c;
- --secondary-color: #59c3c3;
- --accent-color: #f45b69;
- --text-dark: #333;
- --text-light: #ebebeb;
- --primary-font: Arial, Helvetica,sans-serif;
- --secondary-font: Mooli, san-serif;
- }
+@import url("https://fonts.googleapis.com/css2?family=Mooli&family=Roboto:wght@400;700&display=swap");
 
+:root {
+  --primary-color: #52489c;
+  --text-light: #ebebeb;
+  --text-dark: #333;
+  --primary-font: 'Roboto', Arial, Helvetica, sans-serif;
+  --secondary-font: 'Mooli', sans-serif;
+}
+
+/* Base styles */
 body {
-    margin: 0;
-    font-family: var(--primary-font);
-    background-color: #eee;
-    color: #000;
-    text-align: center;
+  margin: 0;
+  font-family: var(--primary-font);
+  font-size: 1.1em;
+  color: var(--text-dark);
+  background-color: #eee;
+  text-align: center;
 }
 
-header {
-    background-color: #5c4ba3;
-    padding: 20px 0;
-    color: var(--text-light);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
-nav {
-    margin-top: 10px;
-}
-
-nav a {
-    text-decoration: underline;
-    color: var(--text-light);
-    padding: 10px;
-    margin: 0 70px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-main {
-    padding: 20px;
+h1, h2 {
+  font-family: var(--secondary-font);
+  margin: 0.5em 0;
 }
 
 h2 {
-    margin: 20px 0;
-    font-size: 1.4em;
+  color: var(--text-dark);
 }
 
+/* Header */
+header {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2em;
+}
+
+/* Nav */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Menu button */
+#menuButton {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.2em;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+/* Gallery */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-items: center;
-    max-width: 900px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 1000px;
 }
 
-.gallery img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border: 5px solid white;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-    transition: transform 0.2s;
+figure {
+  margin: 0;
 }
 
-.gallery img:hover {
-    transform: scale(1.05);
+figure img {
+  width: 100%;
+  max-width: 250px;
+  height: 250px;
+  object-fit: cover;
+  background: white;
+  border: 4px solid white;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease;
 }
 
+figure img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
 footer {
-    color: var(--text-light);
-    background-color: var(--primary-color);
-    font-size: 0.8em;
-    padding: 10px 0;
-    margin-top: 30px;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9em;
+}
+
+/* Nav visible by default on small screens (large screens still use flex via media query) */
+#mainNav {
+  display: block;
+}
+
+#mainNav.show {
+  display: block;
+}
+
+/* Responsive layouts */
+
+/* Small (default): 1 col gallery */
+
+/* Medium screens: 700px–899px */
+@media screen and (min-width: 700px) and (max-width: 899px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #menuButton {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Large screens: 900px+ */
+@media screen and (min-width: 900px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #menuButton {
+    display: none;
+  }
+
+  #mainNav {
+    display: flex !important;
+    justify-content: center;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+/* Image model */
+dialog.image-model {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+dialog.image-model img {
+  display: block;
+  margin: 20vh auto 0 auto;
+  width: 60%;
+  max-height: 70%;
+  border-radius: 10px;
+  border: 5px solid white;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.6);
+}
+
+.close-viewer {
+  position: absolute;
+  top: 18vh;
+  right: 5vw;
+  background: white;
+  color: black;
+  font-size: 1.2rem;
+  padding: 0.3em 0.7em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
