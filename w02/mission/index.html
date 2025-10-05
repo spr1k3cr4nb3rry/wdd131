@@ -7,10 +7,15 @@
     <meta name="description" content="A recreation of the University mission statement in HTML and CSS.">
     <meta name="author" content="Izzie Vazquez">
     <link rel="stylesheet" href="styles.css">
+	<script src="mission.js" defer></script>
 </head>
 <body>
     <div class="content">
 		<header class="title">
+			<select id="theme-selector">
+				<option value="light" selected>Light</option>
+                <option value="dark">Dark</option>
+			</select>
 			<h1>MISSION STATEMENT</h1>
 			<h2>BRIGHAM YOUNG UNIVERSITY-IDAHO</h2>
 		</header>
@@ -40,7 +45,7 @@
 			</ol>
 		</main>
 		<footer>
-			<img src="byui-logo_blue.webp" alt="BYUI logo" class="logo" />
+			<img src="byui-logo_blue.webp" alt="BYUI logo" id="logo" />
 		</footer>
 	</div>
 </body>
