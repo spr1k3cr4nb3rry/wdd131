@@ -2,12 +2,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.getElementById("menuButton");
   const mainNav = document.getElementById("mainNav");
 
-  // Toggle nav
+  /* --- Toggle Menu on Small Screens --- */
   menuButton.addEventListener("click", () => {
     mainNav.classList.toggle("show");
   });
 
-  // Image model
+  /* --- Handle Resize to Prevent Hidden Menu on Large Screens --- */
+  function handleResize() {
+    if (window.innerWidth >= 900) {
+      mainNav.classList.remove("show");
+    }
+  }
+
+  window.addEventListener("resize", handleResize);
+  handleResize();
+
+  /* --- Image Modal Functionality --- */
   const gallery = document.querySelector(".gallery");
   const model = document.createElement("dialog");
   model.classList.add("image-model");
@@ -27,8 +37,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     model.showModal();
 
-    model.querySelector(".close-viewer").addEventListener("click", () => {
+    const closeBtn = model.querySelector(".close-viewer");
+    closeBtn.addEventListener("click", () => {
       model.close();
     });
+  });
+
+  // Optional: close modal when clicking outside the image
+  model.addEventListener("click", (event) => {
+    const image = model.querySelector("img");
+    if (event.target === model && !image.contains(event.target)) {
+      model.close();
+    }
   });
 });
