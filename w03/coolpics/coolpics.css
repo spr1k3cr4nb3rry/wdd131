@@ -154,7 +154,7 @@ footer {
 }
 
 /* --- Image Modal --- */
-dialog.image-model {
+dialog.image-modal {
   width: 100%;
   height: 100%;
   border: none;
@@ -166,7 +166,7 @@ dialog.image-model {
   z-index: 10;
 }
 
-dialog.image-model img {
+dialog.image-modal img {
   display: block;
   margin: 20vh auto 0 auto;
   width: 60%;

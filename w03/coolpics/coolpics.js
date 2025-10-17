@@ -2,26 +2,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.getElementById("menuButton");
   const mainNav = document.getElementById("mainNav");
 
-  /* --- Toggle Menu on Small Screens --- */
   menuButton.addEventListener("click", () => {
     mainNav.classList.toggle("show");
   });
 
-  /* --- Handle Resize to Prevent Hidden Menu on Large Screens --- */
-  function handleResize() {
-    if (window.innerWidth >= 900) {
-      mainNav.classList.remove("show");
-    }
+function handleResize() {
+  const menu = document.querySelector(".menu");
+  if (window.innerWidth > 1000) {
+    menu.classList.remove("hide");
+  } else {
+    menu.classList.add("hide");
   }
+}
 
   window.addEventListener("resize", handleResize);
   handleResize();
 
-  /* --- Image Modal Functionality --- */
   const gallery = document.querySelector(".gallery");
-  const model = document.createElement("dialog");
-  model.classList.add("image-model");
-  document.body.appendChild(model);
+  const modal = document.createElement("dialog");
+  modal.classList.add("image-modal");
+  document.body.appendChild(modal);
 
   gallery.addEventListener("click", (event) => {
     const clickedImage = event.target.closest("img");
@@ -30,24 +30,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const alt = clickedImage.alt;
     const src = clickedImage.src.split("-")[0] + "-full.jpeg";
 
-    model.innerHTML = `
+    modal.innerHTML = `
       <img src="${src}" alt="${alt}">
       <button class="close-viewer">X</button>
     `;
 
-    model.showModal();
+    modal.showModal();
 
-    const closeBtn = model.querySelector(".close-viewer");
+    const closeBtn = modal.querySelector(".close-viewer");
     closeBtn.addEventListener("click", () => {
-      model.close();
+      modal.close();
     });
   });
 
-  // Optional: close modal when clicking outside the image
-  model.addEventListener("click", (event) => {
-    const image = model.querySelector("img");
-    if (event.target === model && !image.contains(event.target)) {
-      model.close();
+  modal.addEventListener("click", (event) => {
+    const image = modal.querySelector("img");
+    if (event.target === modal && !image.contains(event.target)) {
+      modal.close();
     }
   });
 });
