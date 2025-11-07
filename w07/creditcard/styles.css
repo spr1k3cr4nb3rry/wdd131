@@ -1,7 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400, 700,300);
+:root {
+  --font-family: 'Courier New', Courier, monospace;
+}
+
 body {
   background-color: #ffffff;
-  font-family: lato, 'helvetica-light';
+  font-family: var(--font-family);
   position: relative;
   text-transform: uppercase;
   padding: 20px 0;
@@ -31,7 +34,7 @@ body {
   border-radius: 8px;
   height: 42px;
   font-size: 12px;
-  font-family: lato, 'helvetica-light', 'sans-serif';
+  font-family: var(--font-family);
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 400;
@@ -61,7 +64,7 @@ body {
   font-size: 10px;
   letter-spacing: 1px;
   font-weight: 300;
-  color: white;
+  color: #444444;
 }
 
 #card-image {
@@ -164,7 +167,6 @@ body {
   margin-left: 10px;
   width: 32%;
   display: inline-block;
-  float: right;
 }
 
 .hidden {
@@ -197,14 +199,14 @@ input {
   font-size: 10px;
   box-sizing: border-box;
   border-radius: 4px;
-  font-family: lato, 'helvetica-light', 'sans-serif';
+  font-family: var(--font-family);
   letter-spacing: .7px;
 }
 
 input::-webkit-input-placeholder {
   color: #fff;
   opacity: 0.7;
-  font-family: lato, 'helvetica-light', 'sans-serif';
+  font-family: var(--font-family);
   letter-spacing: 1px;
   font-weight: 300;
   letter-spacing: 1px;
@@ -214,8 +216,8 @@ input::-webkit-input-placeholder {
 input:-moz-placeholder {
   color: #fff;
   opacity: 0.7;
-  font-family: lato, 'helvetica-light', 'sans-serif';
-    letter-spacing: 1px;
+  font-family: var(--font-family);
+  letter-spacing: 1px;
   font-weight: 300;
   letter-spacing: 1px;
   font-size: 10px;
@@ -224,7 +226,7 @@ input:-moz-placeholder {
 input::-moz-placeholder {
   color: #fff;
   opacity: 0.7;
-  font-family: lato, 'helvetica-light', 'sans-serif';
+  font-family: var(--font-family);
   letter-spacing: 1px;
   font-weight: 300;
   letter-spacing: 1px;
@@ -234,7 +236,7 @@ input::-moz-placeholder {
 input:-ms-input-placeholder {
   color: #fff;
   opacity: 0.7;
-  font-family: lato, 'helvetica-light', 'sans-serif';
+  font-family: var(--font-family);
   letter-spacing: 1px;
   font-weight: 300;
   letter-spacing: 1px;
