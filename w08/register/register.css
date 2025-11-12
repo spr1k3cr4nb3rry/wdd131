@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
   }
+
   body {
     font-family: Roboto, Arial, sans-serif;
     font-size: 16px;
@@ -27,15 +28,18 @@
     max-width: 960px;
     margin: 0 auto;
   }
+
   form {
     padding: 20px;
     border-radius: 6px;
     background: #fff;
     box-shadow: 0 0 8px #006622;
   }
+
   fieldset {
     margin-bottom: 2em;
   }
+
   input,
   select,
   textarea {
@@ -43,21 +47,26 @@
     border: 1px solid #ccc;
     border-radius: 3px;
   }
+
   input {
     width: 100%;
     padding: 5px;
   }
+
   input[type="checkbox"] {
     width: auto;
     margin-right: 1em;
   }
+
   input[type="date"] {
     padding: 4px 5px;
   }
+
   textarea {
     width: 100%;
     padding: 5px;
   }
+
   .item:hover p,
   .item:hover i,
   .question:hover p,
@@ -65,6 +74,7 @@
   input:hover::placeholder {
     color: #006622;
   }
+
   .item input:hover,
   .item select:hover,
   .item textarea:hover {
@@ -72,14 +82,15 @@
     box-shadow: 0 0 3px 0 #006622;
     color: #006622;
   }
+
   .item {
     position: relative;
     margin: 10px 0;
   }
+
   .item span {
     color: red;
   }
-
 
   .columns {
     display: flex;
@@ -87,26 +98,42 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
+
   .columns div {
     width: 48%;
+  }
+
+  .participants {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .participants button#add {
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 
   /* Style checkbox and radio. To do this we have to hide the defaults then we create our own */
   input[type="radio"] {
     display: none;
   }
+
   label.radio {
     position: relative;
     display: inline-block;
     margin: 5px 20px 15px 0;
     cursor: pointer;
   }
+
   .question span {
     margin-left: 30px;
   }
+  
   .question-answer label {
     display: block;
   }
+
   label.radio:before {
     content: "";
     position: absolute;
@@ -116,10 +143,12 @@
     border-radius: 50%;
     border: 2px solid #ccc;
   }
+
   input[type="radio"]:checked + label:before,
   label.radio:hover:before {
     border: 2px solid #006622;
   }
+
   label.radio:after {
     content: "";
     position: absolute;
@@ -133,14 +162,17 @@
     transform: rotate(-45deg);
     opacity: 0;
   }
+
   input[type="radio"]:checked + label:after {
     opacity: 1;
   }
+
   /* end style checkbox and radio */
   .btn-block {
     margin-top: 10px;
     text-align: center;
   }
+
   button {
     width: 150px;
     padding: 10px;
@@ -151,12 +183,20 @@
     color: #fff;
     cursor: pointer;
   }
+
   button:hover {
     background: #00b33c;
   }
+
   @media (max-width: 568px) {
     .columns div {
       width: 100%;
+    }
+  }
+
+  @media (min-width: 569px) {
+    .participants {
+      grid-template-columns: 1fr 1fr;
     }
   }
   
