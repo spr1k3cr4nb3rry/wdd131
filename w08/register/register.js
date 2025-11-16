@@ -1,4 +1,4 @@
-import { successTemplate, participantTemplate } from "./templates.js";
+import { successTemplate, participantTemplate } from "./templates.mjs";
 
 document.addEventListener("DOMContentLoaded", function () { // When the page loads
     let count = 1; // reset the count
