@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vazquez Portfolio Site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Isabel Vazquez | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-    
+<header class="site-header">
+  <div class="brand">
+    <img src="images/profile.png" alt="Illustrated profile picture" />
+    <div>
+      <h1>Izzie Vazquez</h1>
+      <p>Illustration | Graphic Design | Web Design</p>
+    </div>
+  </div>
+
+  <nav class="nav-buttons">
+    <a href="index.html" class="btn active">Home</a>
+    <a href="about.html" class="btn">About</a>
+    <a href="#work" class="btn">Work</a>
+    <a href="#contact" class="btn">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="intro">
+  <p>
+    Hi! My name is Izzie, and I’d like to welcome you to my portfolio website.
+    I hope my work inspires you—please feel free to reach out if you’d like to
+    work with me!
+  </p>
+</section>
+
+<section id="work" class="work-section">
+  <h2>Work</h2>
+  <div class="filters">
+    <button data-filter="all" class="filter-btn active">All</button>
+    <button data-filter="illustration" class="filter-btn">Illustration</button>
+    <button data-filter="design" class="filter-btn">Design</button>
+    <button data-filter="web" class="filter-btn">Web</button>
+  </div>
+  <div id="gallery" class="gallery"></div>
+</section>
+
+<section id="contact" class="contact-section">
+  <h2>Contact</h2>
+  <form id="contactForm" novalidate>
+    <label>Name<input id="name" type="text" /></label>
+    <label>Email<input id="email" type="email" /></label>
+    <label>Message<textarea id="message"></textarea></label>
+    <button type="submit">Send</button>
+  </form>
+</section>
+</main>
+
+<footer>
+  <p>© 2025 Izzie Vazquez</p>
+</footer>
 </body>
 </html>
